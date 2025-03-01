@@ -1,56 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f7f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #333;
-}
-
-#countdown {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #e94e77;
-  margin: 20px 0;
-}
-
-.message {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  #countdown {
-    font-size: 2rem;
-  }
-
-  .message {
-    font-size: 1rem;
-  }
-}
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('https://example.com/your-image.jpg'); /* Replace with your image URL */
@@ -80,7 +27,30 @@ h1 {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
 }
+
+.personal-message {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#photo {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -90,6 +60,3 @@ h1 {
     }
 }
 
-#countdown {
-    animation: fadeIn 1s ease-in-out;
-}
