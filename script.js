@@ -1,28 +1,29 @@
-// Set the date you're counting down to
-const countdownDate = new Date("Aug 9, 2025 00:00:00").getTime();
+// Set the date for your wife's birthday
+const birthday = new Date("August 9, 2025 00:00:00").getTime();
 
 // Update the countdown every 1 second
-const x = setInterval(function() {
+const countdownFunction = setInterval(function() {
+    const now = new Date().getTime();
+    const timeLeft = birthday - now;
 
-  // Get the current date and time
-  const now = new Date().getTime();
+    // Calculate time components
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-  // Find the time difference between now and the countdown date
-  const distance = countdownDate - now;
+    // Display the results
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
 
-  // Time calculations for days, hours, minutes, and seconds
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result
-  document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-  // If the countdown is over, display a message
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "Happy Birthday!";
-    document.querySelector(".message").innerHTML = "Let's celebrate!";
-  }
+    // When the countdown is over, display a message and trigger confetti
+    if (timeLeft <= 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "Happy Birthday!";
+        
+        // Trigger confetti effect (optional)
+        confetti();
+    }
 }, 1000);
